@@ -3,6 +3,7 @@ import { CategoriaService } from '../categoria.service';
 import { Categoria } from '../categoria.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria-read',
@@ -18,7 +19,7 @@ export class CategoriaReadComponent implements AfterViewInit {
 
  @ViewChild(MatPaginator) paginator!: MatPaginator;
  
- constructor(private service : CategoriaService){}
+ constructor(private service : CategoriaService, private router: Router){}
  
  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -30,6 +31,10 @@ export class CategoriaReadComponent implements AfterViewInit {
       this.categorias = resposta;
       console.log(this.categorias)
     })
+  }
+
+  navegarParaCategoriaCreate(){
+    this.router.navigate(["categorias/create"])
   }
   
 }
