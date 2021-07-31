@@ -13,7 +13,7 @@ export class CategoriaReadComponent implements AfterViewInit {
 
   categorias: Categoria[] = [];
 
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'acoes'];
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'livros', 'acoes'];
   dataSource = new MatTableDataSource<Categoria>(this.categorias);
 
  @ViewChild(MatPaginator) paginator!: MatPaginator;
