@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Livro } from './livro.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,18 @@ export class LivroService {
     // onde:                urlBase             livros? categria=id que recebeu como arg (id_cat)
     const url = `${this.baseUrl}/livros?categoria=${id_cat}`
     return this.http.get<Livro[]>(url)
+  }
+
+  findAllById(id: String): Observable<Livro>{
+    const url = `${this.baseUrl}/livros/${id}`
+    return this.http.get<Livro>(url)
+  }
+  
+  // update fazendo uma requisição ao back-end 
+  update(livro: Livro): Observable<Livro>{
+    const url = `${this.baseUrl}/livros/${livro.id}`
+    return this.http.put<Livro>(url, livro)
+    
   }
 
   create(livro: Livro, id_cat: String): Observable<Livro>{
