@@ -9,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./livro-read-all.component.css']
 })
 export class LivroReadAllComponent implements OnInit {
+
+
+
   displayedColumns: string[] = ["id", "titulo", "livros", "acoes"];
 
   id_cat: String = "";
@@ -26,6 +29,7 @@ export class LivroReadAllComponent implements OnInit {
     this.findAll();
   }
 
+  
   findAll(): void {
     this.service.findAllByCategoria(this.id_cat).subscribe((resposta) => {
     this.livros = resposta;
