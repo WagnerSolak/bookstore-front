@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { LivroService } from '../livro.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Livro } from '../livro.model';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-livro-update',
@@ -12,7 +12,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class LivroUpdateComponent implements OnInit {
 
-  id_cat: String = ''
+  id_cat: String = "";
 
   livro: Livro = {
     id: '',
